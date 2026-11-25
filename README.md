@@ -1,26 +1,17 @@
 # Minha Lista de Tarefas
 
-Atividade prática de introdução ao React. Digite uma tarefa e clique em **Adicionar** ou pressione **Enter**. O campo é limpo após a inclusão e a lista volta ao estado inicial quando a página é recarregada.
+Lista em React e Vite que busca, adiciona e exclui tarefas no Back4App. As tarefas são compartilhadas por quem acessa o site e reaparecem ao recarregar a página.
 
-## Como executar
+## Como rodar
 
-Com o Node.js instalado, abra um terminal na pasta do projeto.
+1. Crie um app exclusivo para a atividade no Back4App. No Database Browser, crie a classe `Tarefa` com a coluna `titulo` do tipo String. Habilite as operações Find, Create e Delete para o acesso público da demonstração.
+2. Copie `.env.example` para `.env` e preencha `VITE_APP_ID` e `VITE_REST_KEY` com o Application ID e a REST API Key do app.
+3. Com Node.js instalado, rode `npm install` e `npm run dev`. Abra o endereço mostrado no terminal. Reinicie o servidor após editar o `.env`.
 
-```bash
-npm install
-npm run dev
-```
+## Publicação
 
-Abra o endereço exibido no terminal, normalmente http://localhost:5173. Para gerar a versão de produção, execute `npm run build`.
+Site na Vercel: aguardando publicação.
 
-## React, hooks e useState
+Importe o repositório público na Vercel com o preset Vite. Cadastre `VITE_APP_ID` e `VITE_REST_KEY` em Production antes de publicar. Depois, inclua a URL acima e no campo Website da seção About do GitHub. No site publicado, adicione uma tarefa, recarregue, exclua a tarefa e recarregue novamente.
 
-- **React** é uma biblioteca JavaScript para criar interfaces a partir de componentes. Nesta atividade, `App` é o componente que apresenta o formulário e a lista.
-- **Hooks** são funções que dão acesso a recursos do React em componentes de função. Eles são chamados no topo do componente, fora de condições e laços.
-- **`useState`** é o hook que declara um valor de estado e retorna uma função para atualizá-lo. Em `src/App.jsx`, `input` guarda o texto digitado e `tarefas` guarda a lista. Ao adicionar uma tarefa, `setTarefas` cria um novo array com os itens anteriores e o novo item. O React atualiza a interface e `map` transforma cada item em um elemento da lista.
-
-## Referências
-
-- [Início rápido do React](https://pt-br.react.dev/learn)
-- [Documentação de useState](https://pt-br.react.dev/reference/react/useState)
-- [Guia de React para iniciantes da Devpills](https://www.devpills.com.br/post/react-iniciante/)
+Variáveis `VITE_*` são incluídas no JavaScript do navegador. Use apenas as chaves do app de demonstração e mantenha a Master Key fora do frontend.
