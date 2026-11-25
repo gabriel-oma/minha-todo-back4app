@@ -69,3 +69,26 @@ li {
 }
 
 li + li { border-top: 1px solid #d5dfec; }
+
+.tarefa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+}
+
+.tarefa span { min-width: 0; }
+
+.excluir {
+  flex-shrink: 0;
+  background: #a22136;
+}
+
+.excluir:hover { background: #80192a; }
+
+button:disabled {
+  opacity: .55;
+  cursor: default;
+}
+
+.tentar { margin-top: .75rem; }
