@@ -67,51 +67,60 @@ export default function App() {
 
   return (
     <main>
-      <h1>Minha Lista de Tarefas</h1>
-      <form onSubmit={adicionarTarefa}>
-        <label htmlFor="nova-tarefa">Nova tarefa</label>
-        <div className="campo">
-          <input
-            id="nova-tarefa"
-            value={input}
-            onChange={evento => setInput(evento.target.value)}
-            placeholder="O que você precisa fazer?"
-            disabled={!listaCarregada || ocupado}
-            required
-          />
-          <button disabled={!listaCarregada || ocupado || !input.trim()}>
-            Adicionar
-          </button>
-        </div>
-      </form>
-      {erro && <p role="alert">{erro}</p>}
-      {!listaCarregada && !carregando && (
-        <button className="tentar" onClick={tentarNovamente}>Tentar novamente</button>
-      )}
-      <div aria-live="polite">
-        {carregando && <p>Carregando tarefas…</p>}
-        {listaCarregada && tarefas.length === 0 && <p>Nenhuma tarefa adicionada.</p>}
-        {tarefas.length > 0 && (
-          <ul>
-            {tarefas.map(tarefa => (
-              <li key={tarefa.objectId}>
-                <div className="tarefa">
-                  <span>{tarefa.titulo}</span>
-                  <button
-                    type="button"
-                    className="excluir"
-                    disabled={ocupado}
-                    onClick={() => excluirTarefa(tarefa.objectId)}
-                    aria-label={`Excluir ${tarefa.titulo}`}
-                  >
-                    Excluir
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
+      <header className="cabecalho">
+        <span className="marca" aria-hidden="true"><i /><i /><i /></span>
+        <h1>Minha Lista<br />de Tarefas<span>.</span></h1>
+      </header>
+      <section className="painel" aria-labelledby="titulo-lista">
+        <form onSubmit={adicionarTarefa}>
+          <label htmlFor="nova-tarefa">Nova tarefa</label>
+          <div className="campo">
+            <input
+              id="nova-tarefa"
+              value={input}
+              onChange={evento => setInput(evento.target.value)}
+              placeholder="O que você precisa fazer?"
+              disabled={!listaCarregada || ocupado}
+              required
+            />
+            <button disabled={!listaCarregada || ocupado || !input.trim()}>
+              <span aria-hidden="true">＋</span> Adicionar
+            </button>
+          </div>
+        </form>
+        {erro && <p role="alert">{erro}</p>}
+        {!listaCarregada && !carregando && (
+          <button className="tentar" onClick={tentarNovamente}>Tentar novamente</button>
         )}
-      </div>
+        <div className="lista-cabecalho">
+          <h2 id="titulo-lista">Tarefas</h2>
+          {listaCarregada && <span>{tarefas.length} {tarefas.length === 1 ? 'tarefa' : 'tarefas'}</span>}
+        </div>
+        <div aria-live="polite">
+          {carregando && <p>Carregando tarefas…</p>}
+          {listaCarregada && tarefas.length === 0 && <p className="lista-vazia">Nenhuma tarefa adicionada.</p>}
+          {tarefas.length > 0 && (
+            <ul>
+              {tarefas.map(tarefa => (
+                <li key={tarefa.objectId}>
+                  <div className="tarefa">
+                    <span>{tarefa.titulo}</span>
+                    <button
+                      type="button"
+                      className="excluir"
+                      disabled={ocupado}
+                      onClick={() => excluirTarefa(tarefa.objectId)}
+                      aria-label={`Excluir ${tarefa.titulo}`}
+                    >
+                      Excluir
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </section>
     </main>
   )
 }
