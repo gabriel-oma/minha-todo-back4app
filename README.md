@@ -10,8 +10,7 @@ Lista em React e Vite que busca, adiciona e exclui tarefas no Back4App. As taref
 
 ## Publicação
 
-Site na Vercel: aguardando publicação.
+Site na Vercel: https://minha-todo-back4app.vercel.app
 
-Importe o repositório público na Vercel com o preset Vite. Cadastre `VITE_APP_ID` e `VITE_REST_KEY` em Production antes de publicar. Depois, inclua a URL acima e no campo Website da seção About do GitHub. No site publicado, adicione uma tarefa, recarregue, exclua a tarefa e recarregue novamente.
 
 Variáveis `VITE_*` são incluídas no JavaScript do navegador. Use apenas as chaves do app de demonstração e mantenha a Master Key fora do frontend.

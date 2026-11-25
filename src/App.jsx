@@ -83,7 +83,7 @@ export default function App() {
               required
             />
             <button disabled={!listaCarregada || ocupado || !input.trim()}>
-              <span aria-hidden="true">＋</span> Adicionar
+              Adicionar
             </button>
           </div>
         </form>
@@ -91,10 +91,8 @@ export default function App() {
         {!listaCarregada && !carregando && (
           <button className="tentar" onClick={tentarNovamente}>Tentar novamente</button>
         )}
-        <div className="lista-cabecalho">
-          <h2 id="titulo-lista">Tarefas</h2>
-          {listaCarregada && <span>{tarefas.length} {tarefas.length === 1 ? 'tarefa' : 'tarefas'}</span>}
-        </div>
+
+        <h2 id="titulo-lista">Tarefas</h2>
         <div aria-live="polite">
           {carregando && <p>Carregando tarefas…</p>}
           {listaCarregada && tarefas.length === 0 && <p className="lista-vazia">Nenhuma tarefa adicionada.</p>}
