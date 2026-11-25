@@ -68,8 +68,7 @@ export default function App() {
   return (
     <main>
       <header className="cabecalho">
-        <span className="marca" aria-hidden="true"><i /><i /><i /></span>
-        <h1>Minha Lista<br />de Tarefas<span>.</span></h1>
+        <h1>Minha Lista de Tarefas</h1>
       </header>
       <section className="painel" aria-labelledby="titulo-lista">
         <form onSubmit={adicionarTarefa}>
